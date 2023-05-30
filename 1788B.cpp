@@ -36,6 +36,12 @@ void solve()
                 continue;
                 swap(x, y);
             }
+            if (a % 2 == 0)
+            {
+                x += ((a)*5) * pow(10, i - 1);
+                y += ((a)*5) * pow(10, i - 1);
+                continue;
+            }
             x += ((a - 1) * 5) * pow(10, i - 1);
             y += ((a + 1) * 5) * pow(10, i - 1);
 
