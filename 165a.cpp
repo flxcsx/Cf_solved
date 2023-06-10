@@ -14,48 +14,32 @@ bool myComparison(const pair<int, int> &a, const pair<int, int> &b)
 
 void solve()
 {
-    int n;
+    int n, t(0);
     cin >> n;
-    vector<pair<int, int>> v(n);
+    int x[n], y[n];
+
+    for (int i = 0; i < n; i++)
+        cin >> x[i] >> y[i];
+
     for (int i = 0; i < n; i++)
     {
-        cin >> v[i].first >> v[i].second;
-    }
-    sort(v.begin(), v.end());
-    int th = 0, c = 0;
-    for (int i = 0; i < (n - 1); i++)
-    {
-        if (v[i].first == v[i + 1].first)
+        bool r(0), l(0), u(0), d(0);
+        for (int j = 0; j < n; j++)
         {
-            th++;
-            if (th > 1)
-            {
-                c++;
-            }
+            if (x[j] > x[i] and y[j] == y[i])
+                r = 1;
+            if (x[j] < x[i] and y[j] == y[i])
+                l = 1;
+            if (x[j] == x[i] and y[j] > y[i])
+                u = 1;
+            if (x[j] == x[i] and y[j] < y[i])
+                d = 1;
         }
-        else
-        {
-            th = 0;
-        }
+        if (r and l and u and d)
+            t++;
     }
-    // th = 0;
-    // sort(v.begin(), v.end(), myComparison);
-    // for (int i = 0; i < n; i++)
-    // {
-    //     if (v[i].second == v[i + 1].second)
-    //     {
-    //         th++;
-    //         if (th > 1)
-    //         {
-    //             c++;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         th = 0;
-    //     }
-    // }
-    cout << c;
+
+    cout << t << endl;
 }
 
 signed main()

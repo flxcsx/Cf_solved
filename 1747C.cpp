@@ -9,7 +9,7 @@ const int64_t INF = 1e18 + 5;
 
 void solve()
 {
-    int n, t = 0, m = inf;
+    int n, m = inf;
     cin >> n;
     vector<int> a(n);
     cin >> a[0];
@@ -19,16 +19,9 @@ void solve()
         m = (min(m, a[i]));
     }
     if (a[0] > m)
-    {
-
         cout << "Alice\n";
-    }
-
     else
-    {
-
         cout << "Bob\n";
-    }
 }
 
 signed main()
