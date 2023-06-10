@@ -9,23 +9,25 @@ const int64_t INF = 1e18 + 5;
 
 void solve()
 {
-    int n, t = 0;
+    int n, t = 0, m = inf;
     cin >> n;
     vector<int> a(n);
-    for (int i = 0; i < n; i++)
+    cin >> a[0];
+    for (int i = 1; i < n; i++)
     {
         cin >> a[i];
-        t += a[i];
+        m = (min(m, a[i]));
     }
-    if (t % 2 == 0)
+    if (a[0] > m)
     {
-        cout << "Bob\n";
-        return;
+
+        cout << "Alice\n";
     }
+
     else
     {
-        cout << "Alice\n";
-        return;
+
+        cout << "Bob\n";
     }
 }
 
